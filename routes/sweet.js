@@ -1,39 +1,23 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const sweetController = require("../contrlollers/controllers").sweetController
+
+
+const router = express.Router();
 
 // add a item
-router.post('/add-item', function(req, res, next) {
-    const data = req.body
-    console.log(data)
-    return res.send("Your data is saved")
-});
+router.post('/add-item', sweetController.add);
 
 // Update a item
-router.put('/update-item', function(req, res, next) {
-    const data = req.body
-    console.log(data)
-    return res.send("Your data is updated")
-});
+router.put('/update-item', sweetController.update);
 
 // Delete a item
-router.delete('/delete-item/:id', function(req, res, next) {
-    const id = req.params.id
-    console.log(id)
-    return res.send(`Your data which item id is ${id} is deleted successfully`)
-});
+router.delete('/delete-item/:id', sweetController.delete)
 
 // Get single item
-router.get('/get-items/:id', function(req, res, next) {
-    const id = req.params.id
-    // database
-    console.log(id)
-    return res.send({ name: "abahy", age: 32 })
-});
+router.get('/get-items/:id', sweetController.getOne)
 
 // Get multiple Item
-router.get('/get-items', function(req, res, next) { 
-    return res.send([{ name: "abahy", age: 32 }])
-});
+router.get('/get-items', sweetController.getMany)
 
 
 module.exports = router;
