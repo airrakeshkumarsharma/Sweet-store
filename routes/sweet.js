@@ -1,5 +1,5 @@
 const express = require('express');
-const sweetController = require("../contrlollers/controllers").sweetController
+const sweetController = require("../contrlollers/sweet").sweetController
 
 
 const router = express.Router();
