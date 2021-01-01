@@ -1,5 +1,5 @@
 const sweetController = {
-    add: (req, res) => {
+   add: (req, res) => {
         const data = req.body
         return res.send(data)
     },
