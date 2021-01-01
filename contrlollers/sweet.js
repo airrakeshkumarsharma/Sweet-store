@@ -1,6 +1,9 @@
+const sweetService = require("./../services/sweet").sweetService
+
 const sweetController = {
-   add: (req, res) => {
+   add: async (req, res) => {
         const data = req.body
+        await sweetService.add(data)
         return res.send(data)
     },
 
@@ -15,8 +18,9 @@ const sweetController = {
     getOne: () => {
 
     },
-    getMany: () => {
-        
+    getMany: async (req, res) => {
+        const allSweets = await sweetService.getMany()
+        return res.send(allSweets)
     }
 }
 

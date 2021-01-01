@@ -2,21 +2,26 @@ const sweetModel = require("../models/sweet").sweetModel
 const sweetController = require("../contrlollers/sweet").sweetController;
 
 
-const add = sweetController.add;
-const update = sweetController.update;
-const getOne = sweetController.getOne;
-const getMany = sweetController.getMany;
-const Delete = sweetController.delete;
 
-sweetModel = { 
-   add = () => {
+exports.sweetService = { 
+   add: async data => {
+       const sweet = await sweetModel.create(data)
+
+       return sweet
     },
-    update = () => { 
+
+    getMany: async () => {
+        return await sweetModel.find({}) 
     },
-  getOne = () => { 
+    
+    update: () => { 
     },
-  getMany = () => { 
+
+    getOne: () => { 
     },
-  Delete = () => {
-       }
+    
+
+
+    Delete: () => {
+    }
   };
