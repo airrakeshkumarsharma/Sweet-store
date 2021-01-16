@@ -14,14 +14,16 @@ exports.sweetService = {
         return await sweetModel.find({}) 
     },
     
-    update: () => { 
+    update: async ( condition, data ) => {
+        return await sweetModel.update(condition, data) 
     },
 
-    getOne: () => { 
+    getOne: () => {
     },
     
 
 
-    Delete: () => {
+    Delete: async condition => {
+        return await sweetModel.deleteOne(condition)
     }
   };
